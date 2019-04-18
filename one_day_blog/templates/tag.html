@@ -1,0 +1,18 @@
+{% extends 'base_article.html' %}
+{% load static %}
+
+{% block title %}
+{{tag.title}}
+{% endblock %}
+
+{% block name %}
+<h1>{{tag.title}}</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+	{% for article in tag.tags.all %}
+	<li>{{article.title}}</li>
+	{% endfor %}
+</ul>
+{% endblock %}

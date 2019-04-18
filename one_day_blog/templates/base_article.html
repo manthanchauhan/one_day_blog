@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}
+	{% endblock %}
+	</title>
+</head>
+<body>
+	<a href="{% url 'articles_home' %}">Home</a>
+	{% block name %}
+	{% endblock %}
+
+	{% block thumbnail %}
+	{% endblock %}
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>
