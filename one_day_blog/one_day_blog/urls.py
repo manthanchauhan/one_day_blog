@@ -1,25 +1,18 @@
-"""one_day_blog URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from articles import views
+from accounts import views as accounts_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.home, name='articles_home'),
-    path('admin/', admin.site.urls),
-    path('articles/<int:id_>/', views.article, name='article'),
-    path('tags/<int:id_>/', views.tag, name='tag'),
+    path('login_page/', auth_views.LoginView.as_view(), name='login_url'),
+    path('logout_page/', auth_views.LogoutView.as_view(), name='logout_url'),
+    path('', views.home, name='home_url'),
+    path('admin/', admin.site.urls, name='admin_url'),
+    path('articles/<int:id_>/', views.article, name='article_url'),
+    path('tags/<int:id_>/', views.tag, name='tag_url'),
+    path('signup_page/', accounts_views.signup, name='signup_url'),
+    path('articles_page/', views.articles, name='articles_url'),
+    path('tags_page/', views.tags, name='tags_url'),
+    path('admin_profile_page/', views.admin_profile, name='admin_profile_url')
 ]

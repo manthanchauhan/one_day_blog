@@ -21,7 +21,7 @@ Articles
 	<tbody>
 		{% for article in articles %}
 		<tr>
-			<td><strong><a href="{% url 'article' article.id %}">{{article.title}}</a></strong><br>{{article.description}}</td>
+			<td><strong><a href="{% url 'article_url' article.id %}">{{article.title}}</a></strong><br>{{article.description}}</td>
 			<td>
 				{% if article.author != None %}
 				<a href="">{{article.author}}</a>
@@ -31,7 +31,7 @@ Articles
 				</td>
 			<td>
 				{% for tag in article.tags.all %}
-				<a href="{% url 'tag' tag.id %}">{{tag.title}}</a>, 
+				<a href="{% url 'tag_url' tag.id %}">{{tag.title}}</a>, 
 				{% endfor %}
 			</td>
 			<td>{{article.date_created}}</td>

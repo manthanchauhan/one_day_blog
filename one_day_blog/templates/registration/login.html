@@ -1,0 +1,14 @@
+{% extends 'base_article.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+</form>
+Don't have a account? Register <a href="{% url 'signup_url' %}">here</a>.
+{% endblock %}

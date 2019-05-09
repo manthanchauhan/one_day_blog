@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'articles'
+    'articles',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
+LOGIN_REDIRECT_URL = 'home_url'
+LOGOUT_REDIRECT_URL = 'home_url'
 
 LANGUAGE_CODE = 'en-us'
 
@@ -119,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+APPEND_SLASH = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]

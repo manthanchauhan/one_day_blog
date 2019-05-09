@@ -1,0 +1,23 @@
+{% extends 'base_article.html' %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block name %}
+<h1>Signup page</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" novalidate>
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit" class="btn btn-primary">
+		Submit
+	</button>
+	<button type="reset" class="btn btn-primary">
+		Reset
+	</button>
+</form>
+Already have an account? Login <a href="{% url 'login_url' %}">here</a>.
+{% endblock %}

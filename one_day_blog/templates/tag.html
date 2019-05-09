@@ -15,4 +15,10 @@
 	<li>{{article.title}}</li>
 	{% endfor %}
 </ul>
+{% if user.is_superuser %}
+Do you want to remove this tag?
+<form method="post">{% csrf_token %}
+<button type="submit">Delete Tag</button>
+</form>
+{% endif %}
 {% endblock %}

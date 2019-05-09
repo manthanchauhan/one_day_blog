@@ -1,0 +1,26 @@
+{% extends 'base_article.html' %}
+
+{% block name %}
+<h1>Tags</h1>
+{% endblock %}
+
+{% block content %}
+<h3>All tags</h3>
+<ol>
+	{% for tag in tags %}
+	<li><a href="{% url 'tag_url' tag.id %}">{{tag.title}}</a></li>
+	{% endfor %}
+</ol>
+<h3>Create new tag:</h3>
+<form method="post">
+	{% csrf_token %}
+	{{create.as_p}}
+	<button type="submit" name="create">Create Tag</button>
+</form><br>
+<h3>Remove tag(s):</h3>
+<form method="post">
+	{% csrf_token %}
+	{{remove.as_p}}
+	<button type="submit" name="remove">Remove Tag(s)</button>
+</form>
+{% endblock %}

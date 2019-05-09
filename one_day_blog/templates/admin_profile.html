@@ -1,0 +1,14 @@
+{% extends 'base_article.html' %}
+
+{% block name %}
+{% if not user.is_superuser %}
+<h3>About Admin</h3>
+{% else %}
+<h3>My Resume</h3>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+Name: {{admin.username}}<br>
+Email: {{admin.email}}
+{% endblock %}
